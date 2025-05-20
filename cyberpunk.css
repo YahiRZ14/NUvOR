@@ -1,0 +1,250 @@
+/* Elementos Cyberpunk */
+.cyber-elements {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.cyber-element {
+    position: absolute;
+    width: 2px;
+    height: 100vh;
+    background: linear-gradient(180deg, 
+        transparent 0%,
+        var(--primary-color) 50%,
+        transparent 100%);
+    animation: cyber-rain linear infinite;
+    opacity: 0.3;
+}
+
+@keyframes cyber-rain {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(100%);
+    }
+}
+
+/* Efectos de Glitch */
+.glitch-effect {
+    position: relative;
+    overflow: hidden;
+}
+
+.glitch-effect::before,
+.glitch-effect::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-color);
+}
+
+.glitch-effect::before {
+    left: 2px;
+    text-shadow: -2px 0 var(--secondary-color);
+    clip: rect(24px, 550px, 90px, 0);
+    animation: glitch-anim-2 3s infinite linear alternate-reverse;
+}
+
+.glitch-effect::after {
+    left: -2px;
+    text-shadow: -2px 0 var(--primary-color);
+    clip: rect(85px, 550px, 140px, 0);
+    animation: glitch-anim 2.5s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+    0% {
+        clip: rect(24px, 550px, 90px, 0);
+    }
+    20% {
+        clip: rect(85px, 550px, 140px, 0);
+    }
+    40% {
+        clip: rect(66px, 550px, 130px, 0);
+    }
+    60% {
+        clip: rect(42px, 550px, 85px, 0);
+    }
+    80% {
+        clip: rect(95px, 550px, 120px, 0);
+    }
+    100% {
+        clip: rect(58px, 550px, 75px, 0);
+    }
+}
+
+@keyframes glitch-anim-2 {
+    0% {
+        clip: rect(58px, 550px, 75px, 0);
+    }
+    20% {
+        clip: rect(42px, 550px, 85px, 0);
+    }
+    40% {
+        clip: rect(95px, 550px, 120px, 0);
+    }
+    60% {
+        clip: rect(24px, 550px, 90px, 0);
+    }
+    80% {
+        clip: rect(85px, 550px, 140px, 0);
+    }
+    100% {
+        clip: rect(66px, 550px, 130px, 0);
+    }
+}
+
+/* Efectos de Hover */
+.cyber-hover {
+    position: relative;
+    overflow: hidden;
+}
+
+.cyber-hover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(var(--primary-color-rgb), 0.2),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+.cyber-hover:hover::before {
+    left: 100%;
+}
+
+/* Bordes Neón */
+.neon-border {
+    position: relative;
+    border: 2px solid var(--primary-color);
+    box-shadow: 0 0 10px var(--primary-color),
+                inset 0 0 10px var(--primary-color);
+}
+
+.neon-border::before,
+.neon-border::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--primary-color);
+}
+
+.neon-border::before {
+    top: -2px;
+    left: -2px;
+    border-right: none;
+    border-bottom: none;
+}
+
+.neon-border::after {
+    bottom: -2px;
+    right: -2px;
+    border-left: none;
+    border-top: none;
+}
+
+/* Animaciones de Entrada */
+.animate {
+    animation: fade-up 0.6s ease forwards;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+@keyframes fade-up {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Efectos de Texto */
+.cyber-text {
+    font-family: 'Orbitron', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background: linear-gradient(45deg, 
+        var(--primary-color),
+        var(--secondary-color)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 10px rgba(var(--primary-color-rgb), 0.5);
+}
+
+/* Botones Cyberpunk */
+.cyber-button {
+    position: relative;
+    padding: 15px 30px;
+    background: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--text-color);
+    font-family: 'Orbitron', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    overflow: hidden;
+    transition: 0.5s;
+    z-index: 1;
+}
+
+.cyber-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--primary-color);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.5s ease;
+    z-index: -1;
+}
+
+.cyber-button:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.cyber-button:hover {
+    color: var(--bg-color);
+}
+
+/* Efectos de Fondo */
+.cyber-bg {
+    position: relative;
+    overflow: hidden;
+}
+
+.cyber-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 10px,
+        rgba(var(--primary-color-rgb), 0.1) 10px,
+        rgba(var(--primary-color-rgb), 0.1) 20px
+    );
+    z-index: -1;
+} 
